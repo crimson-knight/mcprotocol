@@ -22,7 +22,7 @@ module MCProtocol
     getter systemPrompt : String?
     getter temperature : Float64?
 
-    def initialize(@maxTokens : Int64, @messages : Array(SamplingMessage), @includeContext : CreateMessageRequestParamsIncludeContext? = Nil, @metadata : JSON::Any? = Nil, @modelPreferences : ModelPreferences? = Nil, @stopSequences : Array(String)? = Nil, @systemPrompt : String? = Nil, @temperature : Float64? = Nil) : self
+    def initialize(@maxTokens : Int64, @messages : Array(SamplingMessage), @includeContext : CreateMessageRequestParamsIncludeContext? = nil, @metadata : JSON::Any? = nil, @modelPreferences : ModelPreferences? = nil, @stopSequences : Array(String)? = nil, @systemPrompt : String? = nil, @temperature : Float64? = nil)
     end
   end
 
@@ -32,7 +32,7 @@ module MCProtocol
     getter method : String = "sampling/createMessage"
     getter params : CreateMessageRequestParams
 
-    def initialize(@params : CreateMessageRequestParams) : self
+    def initialize(@params : CreateMessageRequestParams)
     end
   end
 end

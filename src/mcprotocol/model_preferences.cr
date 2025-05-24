@@ -33,7 +33,7 @@ module MCProtocol
     # the most important factor.
     getter speedPriority : Float64?
 
-    def initialize(@costPriority : Float64? = Nil, @hints : Array(ModelHint)? = Nil, @intelligencePriority : Float64? = Nil, @speedPriority : Float64? = Nil) : self
+    def initialize(@costPriority : Float64? = nil, @hints : Array(ModelHint)? = nil, @intelligencePriority : Float64? = nil, @speedPriority : Float64? = nil)
     end
   end
 end

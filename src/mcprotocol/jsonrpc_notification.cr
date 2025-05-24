@@ -6,7 +6,7 @@ module MCProtocol
     getter method : String
     getter params : JSON::Any?
 
-    def initialize(@method : String, @jsonrpc : String = "2.0", @params : JSON::Any? = Nil) : self
+    def initialize(@method : String, @jsonrpc : String = "2.0", @params : JSON::Any? = nil)
     end
   end
 end

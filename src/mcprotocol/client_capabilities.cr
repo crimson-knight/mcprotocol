@@ -5,7 +5,7 @@ module MCProtocol
     # Whether the client supports notifications for changes to the roots list.
     getter listChanged : Bool?
 
-    def initialize(@listChanged : Bool? = Nil) : self
+    def initialize(@listChanged : Bool? = nil)
     end
   end
 
@@ -19,7 +19,7 @@ module MCProtocol
     # Present if the client supports sampling from an LLM.
     getter sampling : JSON::Any?
 
-    def initialize(@experimental : JSON::Any? = Nil, @roots : ClientCapabilitiesRoots? = Nil, @sampling : JSON::Any? = Nil) : self
+    def initialize(@experimental : JSON::Any? = nil, @roots : ClientCapabilitiesRoots? = nil, @sampling : JSON::Any? = nil)
     end
   end
 end

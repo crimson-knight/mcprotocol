@@ -2,6 +2,17 @@ require "json"
 require "uri"
 require "./mcprotocol/*"
 
+# JSON converter for URI type
+module MCProtocol::URIConverter
+  def self.from_json(parser : JSON::PullParser) : URI
+    URI.parse(parser.read_string)
+  end
+
+  def self.to_json(uri : URI, builder : JSON::Builder)
+    builder.string(uri.to_s)
+  end
+end
+
 module MCProtocol
   VERSION = "0.1.0"
 

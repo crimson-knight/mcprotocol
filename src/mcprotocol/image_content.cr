@@ -12,7 +12,7 @@ module MCProtocol
     # the data is entirely optional.
     getter priority : Float64?
 
-    def initialize(@audience : Array(Role)? = Nil, @priority : Float64? = Nil) : self
+    def initialize(@audience : Array(Role)? = nil, @priority : Float64? = nil)
     end
   end
 
@@ -26,7 +26,7 @@ module MCProtocol
     getter mimeType : String
     getter type : String = "image"
 
-    def initialize(@data : String, @mimeType : String, @annotations : ImageContentAnnotations? = Nil, @type : String = "image") : self
+    def initialize(@data : String, @mimeType : String, @annotations : ImageContentAnnotations? = nil, @type : String = "image")
     end
   end
 end

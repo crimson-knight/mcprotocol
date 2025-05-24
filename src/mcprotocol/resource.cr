@@ -12,7 +12,7 @@ module MCProtocol
     # the data is entirely optional.
     getter priority : Float64?
 
-    def initialize(@audience : Array(Role)? = Nil, @priority : Float64? = Nil) : self
+    def initialize(@audience : Array(Role)? = nil, @priority : Float64? = nil)
     end
   end
 
@@ -35,9 +35,10 @@ module MCProtocol
     # This can be used by Hosts to display file sizes and estimate context window usage.
     getter size : Int64?
     # The URI of this resource.
+    @[JSON::Field(converter: MCProtocol::URIConverter)]
     getter uri : URI
 
-    def initialize(@name : String, @uri : URI, @annotations : ResourceAnnotations? = Nil, @description : String? = Nil, @mimeType : String? = Nil, @size : Int64? = Nil) : self
+    def initialize(@name : String, @uri : URI, @annotations : ResourceAnnotations? = nil, @description : String? = nil, @mimeType : String? = nil, @size : Int64? = nil)
     end
   end
 end

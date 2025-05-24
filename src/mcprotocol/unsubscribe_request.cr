@@ -2,9 +2,10 @@ module MCProtocol
   class UnsubscribeRequestParams
     include JSON::Serializable
     # The URI of the resource to unsubscribe from.
+    @[JSON::Field(converter: MCProtocol::URIConverter)]
     getter uri : URI
 
-    def initialize(@uri : URI) : self
+    def initialize(@uri : URI)
     end
   end
 
@@ -14,7 +15,7 @@ module MCProtocol
     getter method : String = "resources/unsubscribe"
     getter params : UnsubscribeRequestParams
 
-    def initialize(@params : UnsubscribeRequestParams) : self
+    def initialize(@params : UnsubscribeRequestParams)
     end
   end
 end

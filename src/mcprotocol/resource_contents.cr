@@ -5,9 +5,10 @@ module MCProtocol
     # The MIME type of this resource, if known.
     getter mimeType : String?
     # The URI of this resource.
+    @[JSON::Field(converter: MCProtocol::URIConverter)]
     getter uri : URI
 
-    def initialize(@uri : URI, @mimeType : String? = Nil) : self
+    def initialize(@uri : URI, @mimeType : String? = nil)
     end
   end
 end

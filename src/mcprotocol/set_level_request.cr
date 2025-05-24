@@ -4,7 +4,7 @@ module MCProtocol
     # The level of logging that the client wants to receive from the server. The server should send all logs at this level and higher (i.e., more severe) to the client as notifications/message.
     getter level : LoggingLevel
 
-    def initialize(@level : LoggingLevel) : self
+    def initialize(@level : LoggingLevel)
     end
   end
 
@@ -14,7 +14,7 @@ module MCProtocol
     getter method : String = "logging/setLevel"
     getter params : SetLevelRequestParams
 
-    def initialize(@params : SetLevelRequestParams) : self
+    def initialize(@params : SetLevelRequestParams)
     end
   end
 end

@@ -8,7 +8,7 @@ module MCProtocol
     # An optional name of the logger issuing this message.
     getter logger : String?
 
-    def initialize(@data : JSON::Any, @level : LoggingLevel, @logger : String? = Nil) : self
+    def initialize(@data : JSON::Any, @level : LoggingLevel, @logger : String? = nil)
     end
   end
 
@@ -18,7 +18,7 @@ module MCProtocol
     getter method : String = "notifications/message"
     getter params : LoggingMessageNotificationParams
 
-    def initialize(@params : LoggingMessageNotificationParams) : self
+    def initialize(@params : LoggingMessageNotificationParams)
     end
   end
 end

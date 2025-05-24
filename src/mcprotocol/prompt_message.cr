@@ -8,7 +8,7 @@ module MCProtocol
     getter content : TextContent | ImageContent | EmbeddedResource
     getter role : Role
 
-    def initialize(@content : TextContent | ImageContent | EmbeddedResource, @role : Role) : self
+    def initialize(@content : TextContent | ImageContent | EmbeddedResource, @role : Role)
     end
   end
 end

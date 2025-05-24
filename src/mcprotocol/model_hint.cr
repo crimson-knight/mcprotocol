@@ -16,7 +16,7 @@ module MCProtocol
     #  - `gemini-1.5-flash` could match `claude-3-haiku-20240307`
     getter name : String?
 
-    def initialize(@name : String? = Nil) : self
+    def initialize(@name : String? = nil)
     end
   end
 end

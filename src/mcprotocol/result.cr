@@ -4,7 +4,7 @@ module MCProtocol
     # This result property is reserved by the protocol to allow clients and servers to attach additional metadata to their responses.
     getter _meta : JSON::Any?
 
-    def initialize(@_meta : JSON::Any? = Nil) : self
+    def initialize(@_meta : JSON::Any? = nil)
     end
   end
 end

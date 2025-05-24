@@ -6,7 +6,7 @@ module MCProtocol
     # The latest version of the Model Context Protocol that the client supports. The client MAY decide to support older versions as well.
     getter protocolVersion : String
 
-    def initialize(@capabilities : ClientCapabilities, @clientInfo : Implementation, @protocolVersion : String) : self
+    def initialize(@capabilities : ClientCapabilities, @clientInfo : Implementation, @protocolVersion : String)
     end
   end
 
@@ -16,7 +16,7 @@ module MCProtocol
     getter method : String = "initialize"
     getter params : InitializeRequestParams
 
-    def initialize(@params : InitializeRequestParams) : self
+    def initialize(@params : InitializeRequestParams)
     end
   end
 end

@@ -7,7 +7,7 @@ module MCProtocol
     # The value of the argument to use for completion matching.
     getter value : String
 
-    def initialize(@name : String, @value : String) : self
+    def initialize(@name : String, @value : String)
     end
   end
 
@@ -17,7 +17,7 @@ module MCProtocol
     getter argument : CompleteRequestParamsArgument
     getter ref : PromptReference | ResourceReference
 
-    def initialize(@argument : CompleteRequestParamsArgument, @ref : PromptReference | ResourceReference) : self
+    def initialize(@argument : CompleteRequestParamsArgument, @ref : PromptReference | ResourceReference)
     end
   end
 
@@ -27,7 +27,7 @@ module MCProtocol
     getter method : String = "completion/complete"
     getter params : CompleteRequestParams
 
-    def initialize(@params : CompleteRequestParams) : self
+    def initialize(@params : CompleteRequestParams)
     end
   end
 end

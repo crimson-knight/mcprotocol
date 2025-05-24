@@ -8,7 +8,7 @@ module MCProtocol
     # A short description of the error. The message SHOULD be limited to a concise single sentence.
     getter message : String
 
-    def initialize(@code : Int64, @message : String, @data : JSON::Any? = Nil) : self
+    def initialize(@code : Int64, @message : String, @data : JSON::Any? = nil)
     end
   end
 
@@ -19,7 +19,7 @@ module MCProtocol
     getter id : RequestId
     getter jsonrpc : String = "2.0"
 
-    def initialize(@error : JSONRPCErrorError, @id : RequestId, @jsonrpc : String = "2.0") : self
+    def initialize(@error : JSONRPCErrorError, @id : RequestId, @jsonrpc : String = "2.0")
     end
   end
 end

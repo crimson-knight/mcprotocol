@@ -8,7 +8,7 @@ module MCProtocol
     getter description : String?
     getter messages : Array(PromptMessage)
 
-    def initialize(@messages : Array(PromptMessage), @_meta : JSON::Any? = Nil, @description : String? = Nil) : self
+    def initialize(@messages : Array(PromptMessage), @_meta : JSON::Any? = nil, @description : String? = nil)
     end
   end
 end

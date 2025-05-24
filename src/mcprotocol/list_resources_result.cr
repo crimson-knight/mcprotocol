@@ -9,7 +9,7 @@ module MCProtocol
     getter nextCursor : String?
     getter resources : Array(Resource)
 
-    def initialize(@resources : Array(Resource), @_meta : JSON::Any? = Nil, @nextCursor : String? = Nil) : self
+    def initialize(@resources : Array(Resource), @_meta : JSON::Any? = nil, @nextCursor : String? = nil)
     end
   end
 end

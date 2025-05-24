@@ -9,7 +9,7 @@ module MCProtocol
     getter nextCursor : String?
     getter prompts : Array(Prompt)
 
-    def initialize(@prompts : Array(Prompt), @_meta : JSON::Any? = Nil, @nextCursor : String? = Nil) : self
+    def initialize(@prompts : Array(Prompt), @_meta : JSON::Any? = nil, @nextCursor : String? = nil)
     end
   end
 end

@@ -5,7 +5,7 @@ module MCProtocol
     getter method : String = "notifications/initialized"
     getter params : JSON::Any?
 
-    def initialize(@params : JSON::Any? = Nil) : self
+    def initialize(@params : JSON::Any? = nil)
     end
   end
 end

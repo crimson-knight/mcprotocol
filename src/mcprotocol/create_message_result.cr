@@ -11,7 +11,7 @@ module MCProtocol
     # The reason why sampling stopped, if known.
     getter stopReason : String?
 
-    def initialize(@content : TextContent | ImageContent, @model : String, @role : Role, @_meta : JSON::Any? = Nil, @stopReason : String? = Nil) : self
+    def initialize(@content : TextContent | ImageContent, @model : String, @role : Role, @_meta : JSON::Any? = nil, @stopReason : String? = nil)
     end
   end
 end

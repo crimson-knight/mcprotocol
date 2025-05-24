@@ -7,7 +7,7 @@ module MCProtocol
     # If present, there may be more results available.
     getter nextCursor : String?
 
-    def initialize(@_meta : JSON::Any? = Nil, @nextCursor : String? = Nil) : self
+    def initialize(@_meta : JSON::Any? = nil, @nextCursor : String? = nil)
     end
   end
 end

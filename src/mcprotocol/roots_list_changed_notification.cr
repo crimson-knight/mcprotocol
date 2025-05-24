@@ -7,7 +7,7 @@ module MCProtocol
     getter method : String = "notifications/roots/list_changed"
     getter params : JSON::Any?
 
-    def initialize(@params : JSON::Any? = Nil) : self
+    def initialize(@params : JSON::Any? = nil)
     end
   end
 end

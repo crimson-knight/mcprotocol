@@ -4,7 +4,7 @@ module MCProtocol
     getter arguments : JSON::Any?
     getter name : String
 
-    def initialize(@name : String, @arguments : JSON::Any? = Nil) : self
+    def initialize(@name : String, @arguments : JSON::Any? = nil)
     end
   end
 
@@ -14,7 +14,7 @@ module MCProtocol
     getter method : String = "tools/call"
     getter params : CallToolRequestParams
 
-    def initialize(@params : CallToolRequestParams) : self
+    def initialize(@params : CallToolRequestParams)
     end
   end
 end

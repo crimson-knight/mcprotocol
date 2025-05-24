@@ -9,9 +9,10 @@ module MCProtocol
     # The URI identifying the root. This *must* start with file:// for now.
     # This restriction may be relaxed in future versions of the protocol to allow
     # other URI schemes.
+    @[JSON::Field(converter: MCProtocol::URIConverter)]
     getter uri : URI
 
-    def initialize(@uri : URI, @name : String? = Nil) : self
+    def initialize(@uri : URI, @name : String? = nil)
     end
   end
 end

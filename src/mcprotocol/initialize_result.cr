@@ -13,7 +13,7 @@ module MCProtocol
     getter protocolVersion : String
     getter serverInfo : Implementation
 
-    def initialize(@capabilities : ServerCapabilities, @protocolVersion : String, @serverInfo : Implementation, @_meta : JSON::Any? = Nil, @instructions : String? = Nil) : self
+    def initialize(@capabilities : ServerCapabilities, @protocolVersion : String, @serverInfo : Implementation, @_meta : JSON::Any? = nil, @instructions : String? = nil)
     end
   end
 end

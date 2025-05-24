@@ -6,7 +6,7 @@ module MCProtocol
     # The name of the prompt or prompt template.
     getter name : String
 
-    def initialize(@name : String, @arguments : JSON::Any? = Nil) : self
+    def initialize(@name : String, @arguments : JSON::Any? = nil)
     end
   end
 
@@ -16,7 +16,7 @@ module MCProtocol
     getter method : String = "prompts/get"
     getter params : GetPromptRequestParams
 
-    def initialize(@params : GetPromptRequestParams) : self
+    def initialize(@params : GetPromptRequestParams)
     end
   end
 end

@@ -9,7 +9,7 @@ module MCProtocol
     getter nextCursor : String?
     getter tools : Array(Tool)
 
-    def initialize(@tools : Array(Tool), @_meta : JSON::Any? = Nil, @nextCursor : String? = Nil) : self
+    def initialize(@tools : Array(Tool), @_meta : JSON::Any? = nil, @nextCursor : String? = nil)
     end
   end
 end

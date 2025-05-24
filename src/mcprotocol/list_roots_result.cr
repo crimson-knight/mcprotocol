@@ -8,7 +8,7 @@ module MCProtocol
     getter _meta : JSON::Any?
     getter roots : Array(Root)
 
-    def initialize(@roots : Array(Root), @_meta : JSON::Any? = Nil) : self
+    def initialize(@roots : Array(Root), @_meta : JSON::Any? = nil)
     end
   end
 end

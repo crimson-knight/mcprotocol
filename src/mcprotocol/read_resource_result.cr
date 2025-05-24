@@ -6,7 +6,7 @@ module MCProtocol
     getter _meta : JSON::Any?
     getter contents : Array(String)
 
-    def initialize(@contents : Array(String), @_meta : JSON::Any? = Nil) : self
+    def initialize(@contents : Array(String), @_meta : JSON::Any? = nil)
     end
   end
 end

@@ -5,7 +5,7 @@ module MCProtocol
     getter name : String
     getter version : String
 
-    def initialize(@name : String, @version : String) : self
+    def initialize(@name : String, @version : String)
     end
   end
 end

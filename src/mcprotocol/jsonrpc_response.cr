@@ -6,7 +6,7 @@ module MCProtocol
     getter jsonrpc : String = "2.0"
     getter result : Result
 
-    def initialize(@id : RequestId, @result : Result, @jsonrpc : String = "2.0") : self
+    def initialize(@id : RequestId, @result : Result, @jsonrpc : String = "2.0")
     end
   end
 end

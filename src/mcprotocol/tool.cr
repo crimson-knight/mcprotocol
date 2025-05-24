@@ -6,7 +6,7 @@ module MCProtocol
     getter required : Array(String)?
     getter type : String = "object"
 
-    def initialize(@properties : JSON::Any? = Nil, @required : Array(String)? = Nil, @type : String = "object") : self
+    def initialize(@properties : JSON::Any? = nil, @required : Array(String)? = nil, @type : String = "object")
     end
   end
 
@@ -20,7 +20,7 @@ module MCProtocol
     # The name of the tool.
     getter name : String
 
-    def initialize(@inputSchema : ToolInputSchema, @name : String, @description : String? = Nil) : self
+    def initialize(@inputSchema : ToolInputSchema, @name : String, @description : String? = nil)
     end
   end
 end

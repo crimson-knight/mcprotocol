@@ -6,7 +6,7 @@ module MCProtocol
     getter name : String
     getter type : String = "ref/prompt"
 
-    def initialize(@name : String, @type : String = "ref/prompt") : self
+    def initialize(@name : String, @type : String = "ref/prompt")
     end
   end
 end

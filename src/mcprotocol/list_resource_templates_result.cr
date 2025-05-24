@@ -9,7 +9,7 @@ module MCProtocol
     getter nextCursor : String?
     getter resourceTemplates : Array(ResourceTemplate)
 
-    def initialize(@resourceTemplates : Array(ResourceTemplate), @_meta : JSON::Any? = Nil, @nextCursor : String? = Nil) : self
+    def initialize(@resourceTemplates : Array(ResourceTemplate), @_meta : JSON::Any? = nil, @nextCursor : String? = nil)
     end
   end
 end

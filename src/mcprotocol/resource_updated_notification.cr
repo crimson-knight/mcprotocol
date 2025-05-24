@@ -2,9 +2,10 @@ module MCProtocol
   class ResourceUpdatedNotificationParams
     include JSON::Serializable
     # The URI of the resource that has been updated. This might be a sub-resource of the one that the client actually subscribed to.
+    @[JSON::Field(converter: MCProtocol::URIConverter)]
     getter uri : URI
 
-    def initialize(@uri : URI) : self
+    def initialize(@uri : URI)
     end
   end
 
@@ -14,7 +15,7 @@ module MCProtocol
     getter method : String = "notifications/resources/updated"
     getter params : ResourceUpdatedNotificationParams
 
-    def initialize(@params : ResourceUpdatedNotificationParams) : self
+    def initialize(@params : ResourceUpdatedNotificationParams)
     end
   end
 end

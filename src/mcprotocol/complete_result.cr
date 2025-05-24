@@ -8,7 +8,7 @@ module MCProtocol
     # An array of completion values. Must not exceed 100 items.
     getter values : Array(String)
 
-    def initialize(@values : Array(String), @hasMore : Bool? = Nil, @total : Int64? = Nil) : self
+    def initialize(@values : Array(String), @hasMore : Bool? = nil, @total : Int64? = nil)
     end
   end
 
@@ -19,7 +19,7 @@ module MCProtocol
     getter _meta : JSON::Any?
     getter completion : CompleteResultCompletion
 
-    def initialize(@completion : CompleteResultCompletion, @_meta : JSON::Any? = Nil) : self
+    def initialize(@completion : CompleteResultCompletion, @_meta : JSON::Any? = nil)
     end
   end
 end

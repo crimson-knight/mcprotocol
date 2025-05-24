@@ -12,7 +12,7 @@ module MCProtocol
     # the data is entirely optional.
     getter priority : Float64?
 
-    def initialize(@audience : Array(Role)? = Nil, @priority : Float64? = Nil) : self
+    def initialize(@audience : Array(Role)? = nil, @priority : Float64? = nil)
     end
   end
 
@@ -21,7 +21,7 @@ module MCProtocol
     include JSON::Serializable
     getter annotations : AnnotatedAnnotations?
 
-    def initialize(@annotations : AnnotatedAnnotations? = Nil) : self
+    def initialize(@annotations : AnnotatedAnnotations? = nil)
     end
   end
 end

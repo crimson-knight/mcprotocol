@@ -8,7 +8,7 @@ module MCProtocol
     # This MUST correspond to the ID of a request previously issued in the same direction.
     getter requestId : RequestId
 
-    def initialize(@requestId : RequestId, @reason : String? = Nil) : self
+    def initialize(@requestId : RequestId, @reason : String? = nil)
     end
   end
 
@@ -24,7 +24,7 @@ module MCProtocol
     getter method : String = "notifications/cancelled"
     getter params : CancelledNotificationParams
 
-    def initialize(@params : CancelledNotificationParams) : self
+    def initialize(@params : CancelledNotificationParams)
     end
   end
 end

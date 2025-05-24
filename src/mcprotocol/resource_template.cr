@@ -12,7 +12,7 @@ module MCProtocol
     # the data is entirely optional.
     getter priority : Float64?
 
-    def initialize(@audience : Array(Role)? = Nil, @priority : Float64? = Nil) : self
+    def initialize(@audience : Array(Role)? = nil, @priority : Float64? = nil)
     end
   end
 
@@ -31,9 +31,10 @@ module MCProtocol
     # This can be used by clients to populate UI elements.
     getter name : String
     # A URI template (according to RFC 6570) that can be used to construct resource URIs.
+    @[JSON::Field(converter: MCProtocol::URIConverter)]
     getter uriTemplate : URI
 
-    def initialize(@name : String, @uriTemplate : URI, @annotations : ResourceTemplateAnnotations? = Nil, @description : String? = Nil, @mimeType : String? = Nil) : self
+    def initialize(@name : String, @uriTemplate : URI, @annotations : ResourceTemplateAnnotations? = nil, @description : String? = nil, @mimeType : String? = nil)
     end
   end
 end

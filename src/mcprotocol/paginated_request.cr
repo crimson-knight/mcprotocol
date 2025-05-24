@@ -5,7 +5,7 @@ module MCProtocol
     # If provided, the server should return results starting after this cursor.
     getter cursor : String?
 
-    def initialize(@cursor : String? = Nil) : self
+    def initialize(@cursor : String? = nil)
     end
   end
 
@@ -14,7 +14,7 @@ module MCProtocol
     getter method : String
     getter params : PaginatedRequestParams?
 
-    def initialize(@method : String, @params : PaginatedRequestParams? = Nil) : self
+    def initialize(@method : String, @params : PaginatedRequestParams? = nil)
     end
   end
 end

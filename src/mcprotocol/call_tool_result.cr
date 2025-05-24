@@ -19,7 +19,7 @@ module MCProtocol
     # If not set, this is assumed to be false (the call was successful).
     getter isError : Bool?
 
-    def initialize(@content : Array(String), @_meta : JSON::Any? = Nil, @isError : Bool? = Nil) : self
+    def initialize(@content : Array(String), @_meta : JSON::Any? = nil, @isError : Bool? = nil)
     end
   end
 end

@@ -9,7 +9,7 @@ module MCProtocol
     # The name of the prompt or prompt template.
     getter name : String
 
-    def initialize(@name : String, @arguments : Array(PromptArgument)? = Nil, @description : String? = Nil) : self
+    def initialize(@name : String, @arguments : Array(PromptArgument)? = nil, @description : String? = nil)
     end
   end
 end

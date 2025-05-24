@@ -2,9 +2,10 @@ module MCProtocol
   class ReadResourceRequestParams
     include JSON::Serializable
     # The URI of the resource to read. The URI can use any protocol; it is up to the server how to interpret it.
+    @[JSON::Field(converter: MCProtocol::URIConverter)]
     getter uri : URI
 
-    def initialize(@uri : URI) : self
+    def initialize(@uri : URI)
     end
   end
 
@@ -14,7 +15,7 @@ module MCProtocol
     getter method : String = "resources/read"
     getter params : ReadResourceRequestParams
 
-    def initialize(@params : ReadResourceRequestParams) : self
+    def initialize(@params : ReadResourceRequestParams)
     end
   end
 end

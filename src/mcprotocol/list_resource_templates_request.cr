@@ -5,7 +5,7 @@ module MCProtocol
     # If provided, the server should return results starting after this cursor.
     getter cursor : String?
 
-    def initialize(@cursor : String? = Nil) : self
+    def initialize(@cursor : String? = nil)
     end
   end
 
@@ -15,7 +15,7 @@ module MCProtocol
     getter method : String = "resources/templates/list"
     getter params : ListResourceTemplatesRequestParams?
 
-    def initialize(@params : ListResourceTemplatesRequestParams? = Nil) : self
+    def initialize(@params : ListResourceTemplatesRequestParams? = nil)
     end
   end
 end

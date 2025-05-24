@@ -9,7 +9,7 @@ module MCProtocol
     # Whether this argument must be provided.
     getter required : Bool?
 
-    def initialize(@name : String, @description : String? = Nil, @required : Bool? = Nil) : self
+    def initialize(@name : String, @description : String? = nil, @required : Bool? = nil)
     end
   end
 end

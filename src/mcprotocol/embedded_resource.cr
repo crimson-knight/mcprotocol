@@ -12,7 +12,7 @@ module MCProtocol
     # the data is entirely optional.
     getter priority : Float64?
 
-    def initialize(@audience : Array(Role)? = Nil, @priority : Float64? = Nil) : self
+    def initialize(@audience : Array(Role)? = nil, @priority : Float64? = nil)
     end
   end
 
@@ -26,7 +26,7 @@ module MCProtocol
     getter resource : TextResourceContents | BlobResourceContents
     getter type : String = "resource"
 
-    def initialize(@resource : TextResourceContents | BlobResourceContents, @annotations : EmbeddedResourceAnnotations? = Nil, @type : String = "resource") : self
+    def initialize(@resource : TextResourceContents | BlobResourceContents, @annotations : EmbeddedResourceAnnotations? = nil, @type : String = "resource")
     end
   end
 end

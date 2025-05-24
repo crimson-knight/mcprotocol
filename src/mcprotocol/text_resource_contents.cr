@@ -6,9 +6,10 @@ module MCProtocol
     # The text of the item. This must only be set if the item can actually be represented as text (not binary data).
     getter text : String
     # The URI of this resource.
+    @[JSON::Field(converter: MCProtocol::URIConverter)]
     getter uri : URI
 
-    def initialize(@text : String, @uri : URI, @mimeType : String? = Nil) : self
+    def initialize(@text : String, @uri : URI, @mimeType : String? = nil)
     end
   end
 end

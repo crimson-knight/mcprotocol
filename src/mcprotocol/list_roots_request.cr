@@ -11,7 +11,7 @@ module MCProtocol
     getter method : String = "roots/list"
     getter params : JSON::Any?
 
-    def initialize(@params : JSON::Any? = Nil) : self
+    def initialize(@params : JSON::Any? = nil)
     end
   end
 end

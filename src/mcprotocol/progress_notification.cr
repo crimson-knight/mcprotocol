@@ -8,7 +8,7 @@ module MCProtocol
     # Total number of items to process (or total progress required), if known.
     getter total : Float64?
 
-    def initialize(@progress : Float64, @progressToken : ProgressToken, @total : Float64? = Nil) : self
+    def initialize(@progress : Float64, @progressToken : ProgressToken, @total : Float64? = nil)
     end
   end
 
@@ -18,7 +18,7 @@ module MCProtocol
     getter method : String = "notifications/progress"
     getter params : ProgressNotificationParams
 
-    def initialize(@params : ProgressNotificationParams) : self
+    def initialize(@params : ProgressNotificationParams)
     end
   end
 end

@@ -5,7 +5,7 @@ module MCProtocol
     # Whether this server supports notifications for changes to the prompt list.
     getter listChanged : Bool?
 
-    def initialize(@listChanged : Bool? = Nil) : self
+    def initialize(@listChanged : Bool? = nil)
     end
   end
 
@@ -17,7 +17,7 @@ module MCProtocol
     # Whether this server supports subscribing to resource updates.
     getter subscribe : Bool?
 
-    def initialize(@listChanged : Bool? = Nil, @subscribe : Bool? = Nil) : self
+    def initialize(@listChanged : Bool? = nil, @subscribe : Bool? = nil)
     end
   end
 
@@ -27,7 +27,7 @@ module MCProtocol
     # Whether this server supports notifications for changes to the tool list.
     getter listChanged : Bool?
 
-    def initialize(@listChanged : Bool? = Nil) : self
+    def initialize(@listChanged : Bool? = nil)
     end
   end
 
@@ -45,7 +45,7 @@ module MCProtocol
     # Present if the server offers any tools to call.
     getter tools : ServerCapabilitiesTools?
 
-    def initialize(@experimental : JSON::Any? = Nil, @logging : JSON::Any? = Nil, @prompts : ServerCapabilitiesPrompts? = Nil, @resources : ServerCapabilitiesResources? = Nil, @tools : ServerCapabilitiesTools? = Nil) : self
+    def initialize(@experimental : JSON::Any? = nil, @logging : JSON::Any? = nil, @prompts : ServerCapabilitiesPrompts? = nil, @resources : ServerCapabilitiesResources? = nil, @tools : ServerCapabilitiesTools? = nil)
     end
   end
 end

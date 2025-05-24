@@ -5,7 +5,7 @@ module MCProtocol
     getter content : TextContent | ImageContent
     getter role : Role
 
-    def initialize(@content : TextContent | ImageContent, @role : Role) : self
+    def initialize(@content : TextContent | ImageContent, @role : Role)
     end
   end
 end
