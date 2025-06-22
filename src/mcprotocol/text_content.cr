@@ -19,12 +19,17 @@ module MCProtocol
   # Text provided to or from an LLM.
   class TextContent
     include JSON::Serializable
+    
+    # This result property is reserved by the protocol to allow clients and servers to attach additional metadata to their responses.
+    @[JSON::Field(key: "_meta", description: "See [specification/2025-06-18/basic/index#general-fields] for notes on _meta usage.")]
+    getter meta : Hash(String, JSON::Any)?
+    
     getter annotations : TextContentAnnotations?
     # The text content of the message.
     getter text : String
     getter type : String = "text"
 
-    def initialize(@text : String, @annotations : TextContentAnnotations? = nil, @type : String = "text")
+    def initialize(@text : String, @annotations : TextContentAnnotations? = nil, @type : String = "text", @meta : Hash(String, JSON::Any)? = nil)
     end
   end
 end

@@ -19,6 +19,11 @@ module MCProtocol
   # An image provided to or from an LLM.
   class ImageContent
     include JSON::Serializable
+    
+    # This result property is reserved by the protocol to allow clients and servers to attach additional metadata to their responses.
+    @[JSON::Field(key: "_meta", description: "See [specification/2025-06-18/basic/index#general-fields] for notes on _meta usage.")]
+    getter meta : Hash(String, JSON::Any)?
+    
     getter annotations : ImageContentAnnotations?
     # The base64-encoded image data.
     getter data : String
@@ -26,7 +31,7 @@ module MCProtocol
     getter mimeType : String
     getter type : String = "image"
 
-    def initialize(@data : String, @mimeType : String, @annotations : ImageContentAnnotations? = nil, @type : String = "image")
+    def initialize(@data : String, @mimeType : String, @annotations : ImageContentAnnotations? = nil, @type : String = "image", @meta : Hash(String, JSON::Any)? = nil)
     end
   end
 end

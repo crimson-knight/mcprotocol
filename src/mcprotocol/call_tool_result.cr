@@ -13,13 +13,20 @@ module MCProtocol
     include JSON::Serializable
     # This result property is reserved by the protocol to allow clients and servers to attach additional metadata to their responses.
     getter _meta : JSON::Any?
-    getter content : Array(String)
+    
+    # Content provided by the tool. This should contain ContentBlock items.
+    getter content : Array(ContentBlock)
+    
     # Whether the tool call ended in an error.
     #
     # If not set, this is assumed to be false (the call was successful).
     getter isError : Bool?
+    
+    # Optional structured JSON data returned by the tool, conforming to the tool's outputSchema if defined.
+    # This allows tools to return data in a machine-readable format alongside human-readable content.
+    getter structuredContent : JSON::Any?
 
-    def initialize(@content : Array(String), @_meta : JSON::Any? = nil, @isError : Bool? = nil)
+    def initialize(@content : Array(ContentBlock), @_meta : JSON::Any? = nil, @isError : Bool? = nil, @structuredContent : JSON::Any? = nil)
     end
   end
 end

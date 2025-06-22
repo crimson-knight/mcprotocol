@@ -5,10 +5,10 @@ module MCProtocol
   # resources from the MCP server.
   class PromptMessage
     include JSON::Serializable
-    getter content : TextContent | ImageContent | EmbeddedResource
+    getter content : ContentBlock
     getter role : Role
 
-    def initialize(@content : TextContent | ImageContent | EmbeddedResource, @role : Role)
+    def initialize(@content : ContentBlock, @role : Role)
     end
   end
 end

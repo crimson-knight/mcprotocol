@@ -15,9 +15,14 @@ module MCProtocol
     include JSON::Serializable
     # The argument's information
     getter argument : CompleteRequestParamsArgument
-    getter ref : PromptReference | ResourceReference
+    
+    # Additional context to help with completion
+    getter context : Hash(String, JSON::Any)?
+    
+    # Reference to the prompt or resource template for completion
+    getter ref : PromptReference | ResourceTemplateReference
 
-    def initialize(@argument : CompleteRequestParamsArgument, @ref : PromptReference | ResourceReference)
+    def initialize(@argument : CompleteRequestParamsArgument, @ref : PromptReference | ResourceTemplateReference, @context : Hash(String, JSON::Any)? = nil)
     end
   end
 

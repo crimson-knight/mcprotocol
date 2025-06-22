@@ -22,11 +22,16 @@ module MCProtocol
   # of the LLM and/or the user.
   class EmbeddedResource
     include JSON::Serializable
+    
+    # This result property is reserved by the protocol to allow clients and servers to attach additional metadata to their responses.
+    @[JSON::Field(key: "_meta", description: "See [specification/2025-06-18/basic/index#general-fields] for notes on _meta usage.")]
+    getter meta : Hash(String, JSON::Any)?
+    
     getter annotations : EmbeddedResourceAnnotations?
     getter resource : TextResourceContents | BlobResourceContents
     getter type : String = "resource"
 
-    def initialize(@resource : TextResourceContents | BlobResourceContents, @annotations : EmbeddedResourceAnnotations? = nil, @type : String = "resource")
+    def initialize(@resource : TextResourceContents | BlobResourceContents, @annotations : EmbeddedResourceAnnotations? = nil, @type : String = "resource", @meta : Hash(String, JSON::Any)? = nil)
     end
   end
 end

@@ -19,6 +19,11 @@ module MCProtocol
   # A known resource that the server is capable of reading.
   class Resource
     include JSON::Serializable
+    
+    # This result property is reserved by the protocol to allow clients and servers to attach additional metadata to their responses.
+    @[JSON::Field(key: "_meta", description: "See [specification/2025-06-18/basic/index#general-fields] for notes on _meta usage.")]
+    getter meta : Hash(String, JSON::Any)?
+    
     getter annotations : ResourceAnnotations?
     # A description of what this resource represents.
     #
@@ -26,10 +31,12 @@ module MCProtocol
     getter description : String?
     # The MIME type of this resource, if known.
     getter mimeType : String?
-    # A human-readable name for this resource.
-    #
-    # This can be used by clients to populate UI elements.
+    # Intended for programmatic or logical use, but used as a display name in past specs or fallback (if title isn't present).
     getter name : String
+    
+    # Intended for UI and end-user contexts — optimized to be human-readable and easily understood.
+    # If not provided, the name field serves as the fallback for UI display.
+    getter title : String?
     # The size of the raw resource content, in bytes (i.e., before base64 encoding or any tokenization), if known.
     #
     # This can be used by Hosts to display file sizes and estimate context window usage.
@@ -38,7 +45,7 @@ module MCProtocol
     @[JSON::Field(converter: MCProtocol::URIConverter)]
     getter uri : URI
 
-    def initialize(@name : String, @uri : URI, @annotations : ResourceAnnotations? = nil, @description : String? = nil, @mimeType : String? = nil, @size : Int64? = nil)
+    def initialize(@name : String, @uri : URI, @annotations : ResourceAnnotations? = nil, @description : String? = nil, @mimeType : String? = nil, @size : Int64? = nil, @title : String? = nil, @meta : Hash(String, JSON::Any)? = nil)
     end
   end
 end

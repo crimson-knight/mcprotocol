@@ -87,6 +87,9 @@ module MCProtocol
     "notifications/tools/list_changed" => {
       ToolListChangedNotification, Nil, JSON::Any?,
     },
+    "elicitation/create" => {
+      ElicitRequest, ElicitResult, JSON::Any?,
+    },
   }
 
   class ParseError < Exception
