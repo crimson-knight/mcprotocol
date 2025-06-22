@@ -14,7 +14,12 @@ module MCProtocol::URIConverter
 end
 
 module MCProtocol
-  VERSION = "0.1.0"
+  VERSION = "1.0.0"
+  
+  # MCP Protocol version constants
+  PROTOCOL_VERSION = "2025-06-18"
+  PREVIOUS_PROTOCOL_VERSION = "2025-03-26"
+  SUPPORTED_PROTOCOL_VERSIONS = [PROTOCOL_VERSION, PREVIOUS_PROTOCOL_VERSION]
 
   # Hand-rolled
   METHOD_TYPES = {
@@ -95,8 +100,42 @@ module MCProtocol
   class ParseError < Exception
   end
 
-  # Copied from `nobodywasishere/lsprotocol-crystal`, may or may not work
-  def self.parse_message(data : String, method : String? = nil, *, as obj_type = nil) : ClientRequest
+  class UnsupportedProtocolVersionError < Exception
+  end
+
+  # Protocol version negotiation helper
+  def self.negotiate_protocol_version(requested_version : String?) : String
+    return PROTOCOL_VERSION if requested_version.nil?
+    
+    if SUPPORTED_PROTOCOL_VERSIONS.includes?(requested_version)
+      requested_version
+    else
+      raise UnsupportedProtocolVersionError.new("Unsupported protocol version: #{requested_version}. Supported versions: #{SUPPORTED_PROTOCOL_VERSIONS.join(", ")}")
+    end
+  end
+
+  # Check if a feature is available in the given protocol version
+  def self.feature_available?(feature : String, protocol_version : String = PROTOCOL_VERSION) : Bool
+    case feature
+    when "elicitation"
+      protocol_version == PROTOCOL_VERSION
+    when "meta_fields"
+      protocol_version == PROTOCOL_VERSION  
+    when "base_metadata_pattern"
+      protocol_version == PROTOCOL_VERSION
+    when "enhanced_tools"
+      protocol_version == PROTOCOL_VERSION
+    when "content_blocks"
+      true # Available in both versions
+    when "basic_protocol"
+      true # Available in both versions
+    else
+      false
+    end
+  end
+
+  # Enhanced message parser with protocol version support
+  def self.parse_message(data : String, method : String? = nil, *, as obj_type = nil, protocol_version : String = PROTOCOL_VERSION) : ClientRequest
     json = JSON.parse(data)
     json_h = json.as_h
 
@@ -115,7 +154,15 @@ module MCProtocol
     else
       raise ParseError.new("Method cannot be nil") if method.nil?
 
-      obj_type = METHOD_TYPES[method][0]
+      # Check if method is available in the protocol version
+      if method == "elicitation/create" && !feature_available?("elicitation", protocol_version)
+        raise UnsupportedProtocolVersionError.new("Elicitation not supported in protocol version #{protocol_version}")
+      end
+
+      method_mapping = METHOD_TYPES[method]?
+      raise ParseError.new("Unknown method: #{method}") if method_mapping.nil?
+      
+      obj_type = method_mapping[0]
     end
 
     obj_type.from_json(data).as(ClientRequest)

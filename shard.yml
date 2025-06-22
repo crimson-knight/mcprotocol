@@ -1,5 +1,5 @@
 name: mcprotocol
-version: 0.1.0
+version: 1.0.0
 
 authors:
   - Margret Riegert <margret@eowyn.net>
@@ -9,8 +9,10 @@ description: |
   providing type-safe bindings for building MCP servers and clients.
   
   Features:
-  - Complete MCP protocol support (2024-11-05)
-  - Auto-generated Crystal classes from official JSON schema
+  - Complete MCP protocol support (2025-06-18 with 2025-03-26 compatibility)
+  - Hand-crafted Crystal classes with full type safety
+  - Elicitation system for structured user input
+  - Enhanced metadata and schema definition support
   - Server-Sent Events (SSE) support for real-time communication
   - JSON-RPC 2.0 compliant message handling
   - Type-safe tool, resource, and prompt definitions
@@ -23,10 +25,11 @@ license: MIT
 homepage: https://github.com/nobodywasishere/mcprotocol
 repository: https://github.com/nobodywasishere/mcprotocol
 
-development_dependencies:
-  crygen:
-    github: tamdaz/crygen
-    branch: main
+# development_dependencies:
+  # crygen: 
+  #   github: tamdaz/crygen
+  #   branch: main
+  # Note: Code generation library removed - using hand-crafted implementations
 
 targets:
   mcprotocol:
