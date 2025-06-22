@@ -12,6 +12,9 @@ module MCProtocol
   # Capabilities a client may support. Known capabilities are defined here, in this schema, but this is not a closed set: any client can define its own, additional capabilities.
   class ClientCapabilities
     include JSON::Serializable
+    # Present if the client supports elicitation from the server.
+    @[JSON::Field(key: "elicitation")]
+    getter elicitation : JSON::Any?
     # Experimental, non-standard capabilities that the client supports.
     getter experimental : JSON::Any?
     # Present if the client supports listing roots.
@@ -19,7 +22,7 @@ module MCProtocol
     # Present if the client supports sampling from an LLM.
     getter sampling : JSON::Any?
 
-    def initialize(@experimental : JSON::Any? = nil, @roots : ClientCapabilitiesRoots? = nil, @sampling : JSON::Any? = nil)
+    def initialize(@elicitation : JSON::Any? = nil, @experimental : JSON::Any? = nil, @roots : ClientCapabilitiesRoots? = nil, @sampling : JSON::Any? = nil)
     end
   end
 end

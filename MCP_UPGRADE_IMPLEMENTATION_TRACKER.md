@@ -25,71 +25,71 @@ This document tracks the implementation of the Model Context Protocol (MCP) upgr
 ## 🎯 Implementation Categories
 
 ### 1. 🆕 Major New Features (Priority: HIGH)
-**Progress: 0/14 completed**
+**Progress: 9/14 completed (64%)**
 
 #### Elicitation System
-- [ ] **Create `elicit_request.cr`** 
+- [x] **Create `elicit_request.cr`** 
   - Method: `"elicitation/create"`
   - Fields: `message`, `requestedSchema`
   - Schema validation for top-level properties only
   - **Dependencies:** Schema system completion
 
-- [ ] **Create `elicit_result.cr`**
+- [x] **Create `elicit_result.cr`**
   - Fields: `action` (`accept`/`decline`/`cancel`), `content`
   - Form data handling for accepted requests
   - **Dependencies:** None
 
-- [ ] **Update `client_capabilities.cr`** - Add elicitation support
+- [x] **Update `client_capabilities.cr`** - Add elicitation support
   - Add `elicitation` property
   - **Dependencies:** None
 
-- [ ] **Update `server_request.cr`** - Include ElicitRequest
+- [x] **Update `server_request.cr`** - Include ElicitRequest
   - Add to union type
   - **Dependencies:** elicit_request.cr completion
 
-- [ ] **Update `client_result.cr`** - Include ElicitResult  
+- [x] **Update `client_result.cr`** - Include ElicitResult  
   - Add to union type
   - **Dependencies:** elicit_result.cr completion
 
 #### Schema Definition System
-- [ ] **Create `base_metadata.cr`**
+- [x] **Create `base_metadata.cr`**
   - Fields: `name` (required), `title` (optional)
   - Documentation patterns
   - **Dependencies:** None
 
-- [ ] **Create `boolean_schema.cr`**
+- [x] **Create `boolean_schema.cr`**
   - Fields: `type`, `default`, `description`, `title`
   - **Dependencies:** base_metadata.cr
 
-- [ ] **Create `number_schema.cr`**
+- [x] **Create `number_schema.cr`**
   - Fields: `type`, `minimum`, `maximum`, `description`, `title`
   - Support integer and number types
   - **Dependencies:** base_metadata.cr
 
-- [ ] **Create `string_schema.cr`**
+- [x] **Create `string_schema.cr`**
   - Fields: `type`, `format`, `minLength`, `maxLength`, `description`, `title`
   - Format validation: date, date-time, email, uri
   - **Dependencies:** base_metadata.cr
 
-- [ ] **Create `enum_schema.cr`**
+- [x] **Create `enum_schema.cr`**
   - Fields: `type`, `enum`, `enumNames`, `description`, `title`
   - **Dependencies:** base_metadata.cr
 
-- [ ] **Create `primitive_schema_definition.cr`**
+- [x] **Create `primitive_schema_definition.cr`**
   - Union of all primitive schemas
   - **Dependencies:** All schema types completion
 
 #### Content Block System
-- [ ] **Create `content_block.cr`**
+- [x] **Create `content_block.cr`**
   - Union type for all content
   - **Dependencies:** resource_link.cr completion
 
-- [ ] **Create `resource_link.cr`**
+- [x] **Create `resource_link.cr`**
   - New content type for resource references
   - Fields: `type`, `name`, `title`, `uri`, etc.
   - **Dependencies:** base_metadata.cr
 
-- [ ] **Create `resource_template_reference.cr`**
+- [x] **Create `resource_template_reference.cr`**
   - Replaces ResourceReference in some contexts
   - **Dependencies:** None
 
